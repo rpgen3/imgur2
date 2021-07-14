@@ -4,7 +4,7 @@
         'input',
         'strToImg',
         'imgur'
-    ]);
+    ].map(v => `https://rpgen3.github.io/mylib/export/${v}.mjs`));
     const {addInputStr, imgur, bufToImg, imgToBuf} = rpgen3;
     const body = $('body').css({
         'text-align': 'center',
