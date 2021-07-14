@@ -44,9 +44,11 @@
             copy: true,
             value: id
         });
-        imgur.delete({deletehash, token})
-            .then(() => console.log('削除しました'))
-            .catch(() => console.error('削除できませんでした'));
+        $('<button>').text('削除する').on('click', () => {
+            imgur.delete({deletehash, token})
+                .then(() => console.log('削除しました'))
+                .catch(() => console.error('削除できませんでした'));
+        });
         output.append(await imgur.load(id));
     };
     const input = addInputStr(body,{
