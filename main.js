@@ -18,11 +18,16 @@
     });
     const output = $('<div>').appendTo(body);
     const load = async buf => {
-        const {id} = await imgur.upload(bufToImg(buf));
+        const {id, deletehash, token} = await imgur.upload(bufToImg(buf));
         addInputStr(output.empty(),{
             label: 'output',
             copy: true,
             value: id
+        });
+        addInputStr(output,{
+            label: 'deletehash',
+            copy: true,
+            value: `id=${id}&deletehash=${deletehash}&token=${token}`
         });
         output.append(await imgur.load(id));
     };
