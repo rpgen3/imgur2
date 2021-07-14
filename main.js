@@ -1,5 +1,6 @@
 (async()=>{
-    const {importAll} = await import('https://rpgen3.github.io/mylib/export/import.mjs');
+    const {getScript, importAll} = await import('https://rpgen3.github.io/mylib/export/import.mjs');
+    await getScript('https://code.jquery.com/jquery-3.3.1.min.js');
     const rpgen3 = await importAll([
         'input',
         'strToImg',
