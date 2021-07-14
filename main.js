@@ -15,10 +15,10 @@
     $('<input>').appendTo(body).attr({
         type: 'file'
     }).on('change', ({target}) => {
-        target.files[0].arrayBuffer();
+        target.files[0].arrayBuffer().then(upload);
     });
     const output = $('<div>').appendTo(body);
-    const load = async buf => {
+    const upload = async buf => {
         const {id, deletehash, token} = await imgur.upload(bufToImg(buf));
         addInputStr(output.empty(),{
             label: 'output',
