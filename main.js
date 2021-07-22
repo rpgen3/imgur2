@@ -3,11 +3,11 @@
     await getScript('https://code.jquery.com/jquery-3.3.1.min.js');
     const rpgen3 = await importAll([
         'input',
-        'strToImg',
+        'str2img',
         'imgur',
         'util'
     ].map(v => `https://rpgen3.github.io/mylib/export/${v}.mjs`));
-    const {getTime, addInputStr, imgur, bufToImg, imgToBuf} = rpgen3;
+    const {getTime, addInputStr, imgur, buf2img, img2buf} = rpgen3;
     const body = $('body').css({
         'text-align': 'center',
         padding: '1em'
@@ -38,7 +38,7 @@
     });
     const output = $('<div>').appendTo(body);
     const upload = async buf => {
-        const {id, deletehash, token} = await imgur.upload(bufToImg(buf));
+        const {id, deletehash, token} = await imgur.upload(buf2img(buf));
         addInputStr(output.empty(),{
             label: 'output',
             copy: true,
@@ -58,7 +58,7 @@
         $('<a>', {
             download: 'test.mp3',
             href: URL.createObjectURL(new Blob([
-                imgToBuf(await imgur.load(input()))
+                img2buf(await imgur.load(input()))
             ], {type: 'audio/mpeg'}))
         }).get(0).click();
     })
