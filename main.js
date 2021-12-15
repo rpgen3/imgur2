@@ -45,8 +45,8 @@
             value: id
         });
         addInputStr(output,{
-            readonly: true,
-            title: "削除パス",
+            copy: true,
+            label: "削除パス",
             value: `id=${id}&deletehash=${deletehash}&token=${token}`
         });
         $('<button>').appendTo(output).text('削除する').on('click', () => {
