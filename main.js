@@ -49,7 +49,7 @@
             label: "削除パス",
             value: `id=${id}&deletehash=${deletehash}&token=${token}`
         });
-        $('<button>').appendTo(output).text('削除する').on('click', () => {
+        $('<button>').appendTo($('<div>').appendTo(output)).text('削除する').on('click', () => {
             imgur.delete({deletehash, token})
                 .then(() => console.log('削除しました'))
                 .catch(() => console.error('削除できませんでした'));
