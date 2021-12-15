@@ -44,7 +44,7 @@
             copy: true,
             value: id
         });
-        rpgen3.addInputText(output,{
+        addInputStr(output,{
             readonly: true,
             title: "削除パス",
             value: `id=${id}&deletehash=${deletehash}&token=${token}`
