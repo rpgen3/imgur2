@@ -44,7 +44,12 @@
             copy: true,
             value: id
         });
-        $('<button>').text('削除する').on('click', () => {
+        rpgen3.addInputText(output,{
+            readonly: true,
+            title: "削除パス",
+            value: `id=${id}&deletehash=${deletehash}&token=${token}`
+        });
+        $('<button>').appendTo(output).text('削除する').on('click', () => {
             imgur.delete({deletehash, token})
                 .then(() => console.log('削除しました'))
                 .catch(() => console.error('削除できませんでした'));
